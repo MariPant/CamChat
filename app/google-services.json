@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "154120396306",
+    "firebase_url": "https://doorcamera-f8a21-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "doorcamera-f8a21",
+    "storage_bucket": "doorcamera-f8a21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154120396306:android:c899546e3e4f90bb17c2cb",
+        "android_client_info": {
+          "package_name": "com.app.camchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyButUdm6gLXFTVmZMa-18ca6_n3Zm1Fkok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,70 +1,72 @@
 package com.app.camchat.composables
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
-import coil.compose.rememberImagePainter
 import com.example.compose.primaryContainerLight
+import com.example.compose.primaryLight
+
 
 @Composable
-fun ChatItem(message: ChatUiModel.Message) {
-    ConstraintLayout(
-        modifier = Modifier.fillMaxWidth()
+fun SentMessageItem(message: ChatUiModel.Message) {
+    Box(
+        contentAlignment = Alignment.BottomEnd, // Align content to the end (right side)
+        modifier = Modifier
+            .wrapContentWidth()
             .padding(vertical = 4.dp)
-    ) {
-        val chatBubbleId = if (message.isFromMe) Arrangement.End else Arrangement.Start
-        Box(
-            modifier = Modifier
-                .layoutId(chatBubbleId)
-                .clip(
-                    RoundedCornerShape(
-                        topStart = 48f,
-                        topEnd = 48f,
-                        bottomStart = if (message.isFromMe) 48f else 0f,
-                        bottomEnd = if (message.isFromMe) 0f else 48f
-                    )
+            .clip(
+                RoundedCornerShape(
+                    topStart = 16.dp,
+                    topEnd = 16.dp,
+                    bottomStart = 0.dp,
+                    bottomEnd = 16.dp
                 )
-                .background(primaryContainerLight)
-                .padding(16.dp)
-        ){
-            when {
-                message.drawableRes != null -> {
-                    Image(
-                        painter = painterResource(id = message.drawableRes),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(8.dp))
-                    )
-                }
-                message.imageUrl != null -> {
-                    // If you still want to handle URLs (optional)
-                    Image(
-                        painter = rememberImagePainter(data = message.imageUrl),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(RoundedCornerShape(8.dp))
-                    )
-                }
-                message.text != null -> {
-                    Text(text = message.text)
-                }
-            }
-        }
+            )
+            .background(primaryContainerLight) // Change color as needed
+            .padding(16.dp)
+    ) {
+        Text(
+            text = message.text ?: "",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.Black // Text color for user messages
+        )
     }
+}
+
+@Composable
+fun BotMessageItem(message: ChatUiModel.Message) {
+    Box(
+        contentAlignment = Alignment.TopStart, // Align content to the start (left side)
+        modifier = Modifier
+            .wrapContentWidth()
+            .padding(vertical = 4.dp)
+            .clip(
+                RoundedCornerShape(
+                    topStart = 16.dp,
+                    topEnd = 16.dp,
+                    bottomStart = 16.dp,
+                    bottomEnd = 0.dp
+                )
+            )
+            .background(primaryLight) // Change color as needed
+            .padding(16.dp)
+
+    ) {
+        Text(
+            text = message.text ?: "",
+            style = MaterialTheme.typography.bodyMedium,
+            color = Color.White // Text color for bot messages
+        )
     }
+}
+

@@ -11,8 +11,8 @@ import com.app.camchat.composables.ChatScreen
 import com.app.camchat.composables.ChatUiModel
 import com.app.camchat.viewModel.MainViewModel
 import com.example.compose.CamChatTheme
-import com.google.firebase.messaging.FirebaseMessaging
-import okhttp3.OkHttpClient
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.initialize
 
 class MainActivity : ComponentActivity() {
 
@@ -20,6 +20,8 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Initialize Firebase
+        Firebase.initialize(this)
         setContent {
             val conversation = viewModel.conversation.collectAsState()
 

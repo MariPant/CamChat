@@ -25,7 +25,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.example.compose.primaryContainerLight
 import com.example.compose.primaryContainerLightHighContrast
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -70,7 +69,7 @@ fun ChatBox(
                 imageVector = Icons.Filled.Send,
                 contentDescription = "Send",
                 tint = Color.White,
-                modifier = Modifier.fillMaxSize().padding(8.dp)
+                modifier = Modifier.fillMaxSize().padding(4.dp)
             )
         }
     }

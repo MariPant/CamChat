@@ -53,11 +53,14 @@ android {
 dependencies {
     implementation("io.coil-kt:coil-compose:2.1.0")
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-firestore-ktx:25.0.0")
     implementation ("com.google.firebase:firebase-messaging:24.0.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.3")
-
+    implementation ("org.jetbrains.kotlin:kotlin-serialization:2.0.0")
+// Koin for Android
+    implementation ("io.insert-koin:koin-android:3.4.0")
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.2")
     implementation("androidx.activity:activity-compose:1.9.0")
     // Compose UI libraries
     implementation("androidx.compose.ui:ui:1.6.8")
@@ -69,15 +72,18 @@ dependencies {
 
     // Additional dependencies
     implementation("androidx.activity:activity-compose:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
 
     // ConstraintLayout for Compose
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Kotlin coroutines for ViewModel
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    implementation("com.google.firebase:firebase-database:21.0.0")
+    // Coroutine Lifecycle Scopes
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
+
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

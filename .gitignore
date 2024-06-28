@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Ignore all *.iml files
+*.iml
+
+# Firebase and Google Services
+google-services.json
+
+# If you have any API keys or sensitive config files
+app/src/main/res/values/api_keys.xml
